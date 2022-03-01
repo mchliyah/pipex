@@ -7,7 +7,9 @@ RM = rm -f
 
 FILES = pipex.c \
 		ft_split.c\
-		ft_strncmp.c
+		ft_strncmp.c\
+		ft_strjoin.c \
+		ft_strlen.c
 
 OBJECTS = $(subst .c,.o,$(FILES))
 
