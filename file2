@@ -1,0 +1,20 @@
+total 160
+-rw-r--r--  1 mchliyah  2019    353 Mar 10 13:20 Makefile
+-rw-r--r--  1 mchliyah  2019      7 Mar  9 20:10 README.md
+-rw-r--r--  1 mchliyah  2019   2000 Mar 10 14:28 cmds.c
+-rw-r--r--  1 mchliyah  2019   2112 Mar 10 14:33 cmds.o
+-rw-r--r--  1 mchliyah  2019     25 Mar 10 14:32 file
+-rw-r--r--  1 mchliyah  2019      0 Mar 10 14:33 file2
+-rw-r--r--  1 mchliyah  2019   2049 Mar  9 20:10 ft_split.c
+-rw-r--r--  1 mchliyah  2019   1988 Mar 10 14:33 ft_split.o
+-rw-r--r--  1 mchliyah  2019   1263 Mar  9 20:10 ft_strjoin.c
+-rw-r--r--  1 mchliyah  2019    968 Mar 10 14:33 ft_strjoin.o
+-rw-r--r--  1 mchliyah  2019   1017 Mar  9 20:10 ft_strlen.c
+-rw-r--r--  1 mchliyah  2019    660 Mar 10 14:33 ft_strlen.o
+-rw-r--r--  1 mchliyah  2019   1266 Mar  9 20:10 ft_strncmp.c
+-rw-r--r--  1 mchliyah  2019    856 Mar 10 14:33 ft_strncmp.o
+-rwxr-xr-x  1 mchliyah  2019  13456 Mar 10 14:33 pipex
+-rw-r--r--  1 mchliyah  2019   1758 Mar 10 14:26 pipex.c
+drwxr-xr-x  3 mchliyah  2019    102 Mar 10 13:07 pipex.dSYM
+-rw-r--r--  1 mchliyah  2019   1425 Mar  9 23:10 pipex.h
+-rw-r--r--  1 mchliyah  2019   2392 Mar 10 14:33 pipex.o
