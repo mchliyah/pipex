@@ -1,4 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   here_doc_bonus.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/12 14:08:41 by mchliyah          #+#    #+#             */
+/*   Updated: 2022/03/12 14:11:44 by mchliyah         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "pipex_bonus.h"
 
 int	args_in(char *arg, t_ppxb *pipex)
 {
@@ -35,8 +47,8 @@ void	here_doc(char *argv, t_ppxb *pipex)
 	}
 	free(buf);
 	close(file);
-	pipex->infile = open(".heredoc_tmp", O_RDONLY);
-	if (pipex->infile < 0)
+	pipex->fd_in = open(".heredoc_tmp", O_RDONLY);
+	if (pipex->fd_in < 0)
 	{
 		unlink(".heredoc_tmp");
 		msg_error(ERR_HEREDOC);

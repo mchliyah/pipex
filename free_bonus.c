@@ -1,13 +1,24 @@
 /* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   free_bonus.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/12 14:08:31 by mchliyah          #+#    #+#             */
+/*   Updated: 2022/03/12 14:14:51 by mchliyah         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "pipex_bonus.h"
 
 void	parent_free(t_ppxb *pipex)
 {
 	int	i;
 
 	i = 0;
-	close(pipex->infile);
-	close(pipex->outfile);
+	close(pipex->fd_in);
+	close(pipex->fd_out);
 	if (pipex->here_doc)
 		unlink(".heredoc_tmp");
 	while (pipex->cmd_paths[i])
@@ -35,8 +46,8 @@ void	child_free(t_ppxb *pipex)
 
 void	pipe_free(t_ppxb *pipex)
 {
-	close(pipex->infile);
-	close(pipex->outfile);
+	close(pipex->fd_in);
+	close(pipex->fd_out);
 	if (pipex->here_doc)
 		unlink(".heredoc_tmp");
 	free(pipex->pipe);
