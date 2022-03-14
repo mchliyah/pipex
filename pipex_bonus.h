@@ -6,10 +6,9 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:09:48 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/12 14:09:49 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/14 17:33:36 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef PIPEX_BONUS_H
 # define PIPEX_BONUS_H
@@ -22,7 +21,6 @@
 # include <sys/wait.h>
 # include <string.h>
 # include <stdio.h>
-# include "../gnl/get_next_line.h"
 
 # define ERR_INFILE "Infile"
 # define ERR_OUTFILE "Outfile"
