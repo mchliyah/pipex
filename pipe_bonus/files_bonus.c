@@ -6,11 +6,11 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:08:15 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/12 14:15:44 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/18 00:14:06 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex_bonus.h"
+#include "../includes/pipex_bonus.h"
 
 char	*find_path(char **envp)
 {

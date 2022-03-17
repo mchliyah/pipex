@@ -6,11 +6,11 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:10:00 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/12 14:16:36 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/18 00:13:47 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex_bonus.h"
+#include "../includes/pipex_bonus.h"
 
 static char	*get_cmd(char **paths, char *cmd)
 {

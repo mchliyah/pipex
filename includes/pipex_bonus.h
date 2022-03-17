@@ -6,7 +6,7 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:09:48 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/14 17:33:36 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/18 00:17:16 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,17 @@
 # define ERR_CMD "Command not found: "
 # define ERR_HEREDOC "here_doc"
 
-typedef struct s_p
-{
-	int		fd[2];
-	int		pid1;
-	int		pid2;
-	int		fd_in;
-	int		fd_out;
-	char	**paths;
-	char	**args;
-	char	*cmd;
-}	t_p;
+// typedef struct s_p
+// {
+// 	int		fd[2];
+// 	int		pid1;
+// 	int		pid2;
+// 	int		fd_in;
+// 	int		fd_out;
+// 	char	**paths;
+// 	char	**args;
+// 	char	*cmd;
+// }	t_p;
 
 typedef struct s_ppxb
 {
@@ -78,6 +78,7 @@ void	msg_pipe(char *arg);
 int		msg(char *err);
 
 char	*ft_strjoin(char const *s1, char const *s2);
+size_t	ft_strlen(const char *str);
 char	*ft_strdup(const char *src);
 char	**ft_split(char const *s, char c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);

@@ -1,25 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/01 13:55:24 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/01 13:46:37 by mchliyah         ###   ########.fr       */
+/*   Created: 2021/11/07 13:02:26 by mchliyah          #+#    #+#             */
+/*   Updated: 2022/03/18 00:14:25 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../includes/pipex_bonus.h"
 
-size_t	ft_strlen(const char *str)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int	i;
+	char	*dest;
+	int		i;
 
 	i = 0;
-	while (str[i] != '\0')
+	if (!s1 || !s2)
+		return (NULL);
+	dest = malloc((ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!dest)
+		return (NULL);
+	while (*s1 != '\0')
 	{
+		dest[i] = *s1;
 		i++;
+		s1++;
 	}
-	return (i);
+	while (*s2 != '\0')
+	{
+		dest[i] = *s2;
+		i++;
+		s2++;
+	}
+	dest[i] = '\0';
+	return (dest);
 }

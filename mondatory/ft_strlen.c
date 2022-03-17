@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/01 14:57:59 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/01 14:37:18 by mchliyah         ###   ########.fr       */
+/*   Created: 2021/11/01 13:55:24 by mchliyah          #+#    #+#             */
+/*   Updated: 2022/03/18 00:13:07 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../includes/pipex.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+size_t	ft_strlen(const char *str)
 {
-	unsigned char	*str1;
-	unsigned char	*str2;
-	size_t			i;
+	int	i;
 
 	i = 0;
-	str1 = (unsigned char *)s1;
-	str2 = (unsigned char *)s2;
-	while ((str1[i] != '\0' || str2[i] != '\0') && i < (n))
+	while (str[i] != '\0')
 	{
-		if (str1[i] > str2[i])
-			return (1);
-		else if (str1[i] < str2[i])
-			return (-1);
 		i++;
 	}
-	return (0);
+	return (i);
 }

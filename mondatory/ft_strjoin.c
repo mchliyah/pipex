@@ -1,32 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_bonus.c                                      :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/12 14:08:20 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/12 14:11:03 by mchliyah         ###   ########.fr       */
+/*   Created: 2021/11/07 13:02:26 by mchliyah          #+#    #+#             */
+/*   Updated: 2022/03/18 00:13:04 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex_bonus.h"
+#include "../includes/pipex.h"
 
-int	msg(char *err)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	write(2, err, ft_strlen(err));
-	return (1);
-}
+	char	*dest;
+	int		i;
 
-void	msg_pipe(char *arg)
-{
-	write(2, ERR_CMD, ft_strlen(ERR_CMD));
-	write(2, arg, ft_strlen(arg));
-	write(2, "\n", 1);
-}
-
-void	msg_error(char *err)
-{
-	perror(err);
-	exit (1);
+	i = 0;
+	if (!s1 || !s2)
+		return (NULL);
+	dest = malloc((ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!dest)
+		return (NULL);
+	while (*s1 != '\0')
+	{
+		dest[i] = *s1;
+		i++;
+		s1++;
+	}
+	while (*s2 != '\0')
+	{
+		dest[i] = *s2;
+		i++;
+		s2++;
+	}
+	dest[i] = '\0';
+	return (dest);
 }

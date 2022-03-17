@@ -6,11 +6,11 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 15:58:20 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/02/27 22:37:37 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/18 00:14:22 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../includes/pipex_bonus.h"
 
 static char	*f_strndup(char *src, size_t n)
 {

@@ -1,0 +1,6 @@
+.vscode
+.DS_Store
+**/*.o
+pipex.dSYM
+pipex
+pipex_bonus
