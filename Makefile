@@ -20,11 +20,12 @@ FILES_bonus =	\
 				./pipe_bonus/free_bonus.c\
 				./pipe_bonus/cmds_bonus.c\
 				./pipe_bonus/files_bonus.c\
-				./pipe_bonus/ft_split.c\
-				./pipe_bonus/ft_strncmp.c\
-				./pipe_bonus/ft_strjoin.c\
-				./pipe_bonus/ft_strlen.c	\
-				./pipe_bonus/error_bonus.c
+				./mondatory/ft_split.c\
+				./mondatory/ft_strncmp.c\
+				./mondatory/ft_strjoin.c\
+				./mondatory/ft_strlen.c	\
+				./pipe_bonus/error_bonus.c	\
+				./pipe_bonus/here_doc_bonus.c
 
 OBJECTS_bonus = $(FILES_bonus:.c=.o)
 

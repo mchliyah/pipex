@@ -6,13 +6,13 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:08:31 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/18 19:59:10 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/19 23:26:53 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex_bonus.h"
 
-void	parent_free(t_ppxb *p)
+void	parent_free(t_pb *p)
 {
 	int	i;
 
@@ -21,30 +21,30 @@ void	parent_free(t_ppxb *p)
 	close(p->fd_out);
 	// if (p->here_doc)
 	// 	unlink(".heredoc_tmp");
-	while (p->cmd_paths[i])
+	while (p->c_pths[i])
 	{
-		free(p->cmd_paths[i]);
+		free(p->c_pths[i]);
 		i++;
 	}
-	free(p->cmd_paths);
+	free(p->c_pths);
 	free(p->pipe);
 }
 
-void	child_free(t_ppxb *p)
+void	child_free(t_pb *p)
 {
 	int	i;
 
 	i = 0;
-	while (p->cmd_args[i])
+	while (p->args[i])
 	{
-		free(p->cmd_args[i]);
+		free(p->args[i]);
 		i++;
 	}
-	free(p->cmd_args);
+	free(p->args);
 	free(p->cmd);
 }
 
-void	pipe_free(t_ppxb *p)
+void	pipe_free(t_pb *p)
 {
 	close(p->fd_in);
 	close(p->fd_out);

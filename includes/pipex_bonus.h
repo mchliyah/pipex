@@ -6,7 +6,7 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:09:48 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/18 20:02:31 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/19 23:30:23 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,48 +30,36 @@
 # define ERR_CMD "Command not found: "
 # define ERR_HEREDOC "here_doc"
 
-// typedef struct s_p
-// {
-// 	int		fd[2];
-// 	int		pid1;
-// 	int		pid2;
-// 	int		fd_in;
-// 	int		fd_out;
-// 	char	**paths;
-// 	char	**args;
-// 	char	*cmd;
-// }	t_p;
-
-typedef struct s_ppxb
+typedef struct s_pb
 {
 	int		fd_in;
 	int		fd_out;
-	char	*env_path;
-	char	**cmd_paths;
+	char	*path;
+	char	**c_pths;
 	char	*cmd;
-	char	**cmd_args;
+	char	**args;
 	int		here_doc;
-	pid_t	pid;
-	int		cmd_nmbs;
-	int		pipe_nmbs;
+	int		pid;
+	int		c_nbr;
+	int		pipe_nb;
 	int		*pipe;
 	int		idx;
-}t_ppxb;
+}t_pb;
 
-void	close_pipes(t_ppxb *p);
+void	close_pipes(t_pb *p);
 
-void	child(t_ppxb p, char **argv, char **envp);
+void	child(t_pb p, char **argv, char **envp);
 
-void	parent_free(t_ppxb *p);
-void	child_free(t_ppxb *p);
-void	pipe_free(t_ppxb *p);
+void	parent_free(t_pb *p);
+void	child_free(t_pb *p);
+void	pipe_free(t_pb *p);
 
 char	*find_path(char **envp);
-void	get_infile(char **argv, t_ppxb *p);
-void	get_outfile(char *argv, t_ppxb *p);
+void	get_infile(char **argv, t_pb *p);
+void	get_outfile(char *argv, t_pb *p);
 
-int		args_in(char *arg, t_ppxb *p);
-void	here_doc(char *argv, t_ppxb *p);
+int		args_in(char *arg, t_pb *p);
+void	here_doc(char *argv, t_pb *p);
 
 void	msg_error(char *err);
 void	msg_pipe(char *arg);

@@ -6,7 +6,7 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 20:05:08 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/19 21:25:57 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/20 00:14:33 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,18 +41,18 @@ int	main(int ac, char **av, char **envp)
 		perror("argument error");
 		return (0);
 	}
-	pip = get_files(&pip, ac, av);
-	pip = get_path(&pip, envp);
+	pip = get_files(pip, ac, av);
+	pip = get_path(pip, envp);
 	pip->pid1 = fork();
 	if (pip->pid1 < 0)
 		perror ("fork1 error");
-	pip = cmd_1(&pip, av, envp);
+	pip = cmd_1(pip, av, envp);
 	pip->pid2 = fork();
 	if (pip->pid2 < 0)
 		perror ("fork1 error");
-	pip = cmd_2(&pip, av, envp);
-	close(&pip->fd[0]);
-	close(&pip->fd[1]);
+	pip = cmd_2(pip, av, envp);
+	close(pip->fd[0]);
+	close(pip->fd[1]);
 	wait(NULL);
 	wait(NULL);
 	return (1);

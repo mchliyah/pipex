@@ -6,7 +6,7 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:08:15 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/18 19:54:09 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/19 23:27:11 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ char	*find_path(char **envp)
 	return (*envp + 5);
 }
 
-void	get_infile(char **av, t_ppxb *p)
+void	get_infile(char **av, t_pb *p)
 {
 	p->fd_in = open(av[1], O_RDONLY);
 	if (p->fd_in < 0)
 		msg_error(ERR_INFILE);
 }
 
-void	get_outfile(char *av, t_ppxb *p)
+void	get_outfile(char *av, t_pb *p)
 {
 	p->fd_out = open(av, O_CREAT | O_RDWR | O_TRUNC, 0644);
 	if (p->fd_out < 0)
