@@ -6,7 +6,7 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:09:48 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/18 00:17:16 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/18 20:02:31 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,20 +58,20 @@ typedef struct s_ppxb
 	int		idx;
 }t_ppxb;
 
-void	close_pipes(t_ppxb *pipex);
+void	close_pipes(t_ppxb *p);
 
-void	child(t_ppxb pipex, char **argv, char **envp);
+void	child(t_ppxb p, char **argv, char **envp);
 
-void	parent_free(t_ppxb *pipex);
-void	child_free(t_ppxb *pipex);
-void	pipe_free(t_ppxb *pipex);
+void	parent_free(t_ppxb *p);
+void	child_free(t_ppxb *p);
+void	pipe_free(t_ppxb *p);
 
 char	*find_path(char **envp);
-void	get_infile(char **argv, t_ppxb *pipex);
-void	get_outfile(char *argv, t_ppxb *pipex);
+void	get_infile(char **argv, t_ppxb *p);
+void	get_outfile(char *argv, t_ppxb *p);
 
-int		args_in(char *arg, t_ppxb *pipex);
-void	here_doc(char *argv, t_ppxb *pipex);
+int		args_in(char *arg, t_ppxb *p);
+void	here_doc(char *argv, t_ppxb *p);
 
 void	msg_error(char *err);
 void	msg_pipe(char *arg);

@@ -6,7 +6,7 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:08:15 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/18 00:14:06 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/18 19:54:09 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,24 +19,16 @@ char	*find_path(char **envp)
 	return (*envp + 5);
 }
 
-void	get_infile(char **argv, t_ppxb *pipex)
+void	get_infile(char **av, t_ppxb *p)
 {
-	if (!ft_strncmp("here_doc", argv[1], 9))
-		here_doc(argv[2], pipex);
-	else
-	{
-		pipex->fd_in = open(argv[1], O_RDONLY);
-		if (pipex->fd_in < 0)
-			msg_error(ERR_INFILE);
-	}
+	p->fd_in = open(av[1], O_RDONLY);
+	if (p->fd_in < 0)
+		msg_error(ERR_INFILE);
 }
 
-void	get_outfile(char *argv, t_ppxb *pipex)
+void	get_outfile(char *av, t_ppxb *p)
 {
-	if (pipex->here_doc)
-		pipex->fd_out = open(argv, O_WRONLY | O_CREAT | O_APPEND, 0000644);
-	else
-		pipex->fd_out = open(argv, O_CREAT | O_RDWR | O_TRUNC, 0000644);
-	if (pipex->fd_out < 0)
+	p->fd_out = open(av, O_CREAT | O_RDWR | O_TRUNC, 0644);
+	if (p->fd_out < 0)
 		msg_error(ERR_OUTFILE);
 }

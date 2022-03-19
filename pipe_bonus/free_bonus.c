@@ -6,51 +6,51 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:08:31 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/18 00:14:18 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/18 19:59:10 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex_bonus.h"
 
-void	parent_free(t_ppxb *pipex)
+void	parent_free(t_ppxb *p)
 {
 	int	i;
 
 	i = 0;
-	close(pipex->fd_in);
-	close(pipex->fd_out);
-	if (pipex->here_doc)
-		unlink(".heredoc_tmp");
-	while (pipex->cmd_paths[i])
+	close(p->fd_in);
+	close(p->fd_out);
+	// if (p->here_doc)
+	// 	unlink(".heredoc_tmp");
+	while (p->cmd_paths[i])
 	{
-		free(pipex->cmd_paths[i]);
+		free(p->cmd_paths[i]);
 		i++;
 	}
-	free(pipex->cmd_paths);
-	free(pipex->pipe);
+	free(p->cmd_paths);
+	free(p->pipe);
 }
 
-void	child_free(t_ppxb *pipex)
+void	child_free(t_ppxb *p)
 {
 	int	i;
 
 	i = 0;
-	while (pipex->cmd_args[i])
+	while (p->cmd_args[i])
 	{
-		free(pipex->cmd_args[i]);
+		free(p->cmd_args[i]);
 		i++;
 	}
-	free(pipex->cmd_args);
-	free(pipex->cmd);
+	free(p->cmd_args);
+	free(p->cmd);
 }
 
-void	pipe_free(t_ppxb *pipex)
+void	pipe_free(t_ppxb *p)
 {
-	close(pipex->fd_in);
-	close(pipex->fd_out);
-	if (pipex->here_doc)
-		unlink(".heredoc_tmp");
-	free(pipex->pipe);
+	close(p->fd_in);
+	close(p->fd_out);
+	// if (p->here_doc)
+	// 	unlink(".heredoc_tmp");
+	free(p->pipe);
 	msg(ERR_ENVP);
 	exit(1);
 }

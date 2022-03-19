@@ -6,7 +6,7 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:10:00 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/18 00:13:47 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/18 20:18:27 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static char	*get_cmd(char **paths, char *cmd)
 		tmp = ft_strjoin(*paths, "/");
 		command = ft_strjoin(tmp, cmd);
 		free(tmp);
-		if (access(command, 0) == 0)
+		if (access(command, X_OK) == 0)
 			return (command);
 		free(command);
 		paths++;
@@ -30,7 +30,7 @@ static char	*get_cmd(char **paths, char *cmd)
 	return (NULL);
 }
 
-static void	sub_dup2(int zero, int first)
+static void	fd_dup2(int zero, int first)
 {
 	dup2(zero, 0);
 	dup2(first, 1);
@@ -42,11 +42,11 @@ void	child(t_ppxb p, char **argv, char **envp)
 	if (!p.pid)
 	{
 		if (p.idx == 0)
-			sub_dup2(p.fd_in, p.pipe[1]);
+			fd_dup2(p.fd_in, p.pipe[1]);
 		else if (p.idx == p.cmd_nmbs - 1)
-			sub_dup2(p.pipe[2 * p.idx - 2], p.fd_out);
+			fd_dup2(p.pipe[2 * p.idx - 2], p.fd_out);
 		else
-			sub_dup2(p.pipe[2 * p.idx - 2], p.pipe[2 * p.idx + 1]);
+			fd_dup2(p.pipe[2 * p.idx - 2], p.pipe[2 * p.idx + 1]);
 		close_pipes(&p);
 		p.cmd_args = ft_split(argv[2 + p.here_doc + p.idx], ' ');
 		p.cmd = get_cmd(p.cmd_paths, p.cmd_args[0]);

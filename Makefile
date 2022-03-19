@@ -29,7 +29,7 @@ FILES_bonus =	\
 OBJECTS_bonus = $(FILES_bonus:.c=.o)
 
 %.o: %.c
-	@gcc $(FLAGS) -c $^ -o $@
+	@gcc $(CFLAGS) -c $^ -o $@
 
 C_RED = \033[1;31m
 C_GREEN = \033[1;32m
