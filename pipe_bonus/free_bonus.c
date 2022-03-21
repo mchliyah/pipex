@@ -6,7 +6,7 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:08:31 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/19 23:26:53 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/21 14:52:52 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	parent_free(t_pb *p)
 	i = 0;
 	close(p->fd_in);
 	close(p->fd_out);
-	// if (p->here_doc)
-	// 	unlink(".heredoc_tmp");
+	if (p->here_doc)
+		unlink(TMP_FILE);
 	while (p->c_pths[i])
 	{
 		free(p->c_pths[i]);
@@ -48,8 +48,8 @@ void	pipe_free(t_pb *p)
 {
 	close(p->fd_in);
 	close(p->fd_out);
-	// if (p->here_doc)
-	// 	unlink(".heredoc_tmp");
+	if (p->here_doc)
+		unlink(TMP_FILE);
 	free(p->pipe);
 	msg(ERR_ENVP);
 	exit(1);

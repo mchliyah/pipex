@@ -6,7 +6,7 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 23:09:20 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/20 21:43:11 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/21 14:29:56 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,10 @@ t_p	*cmd_1(t_p *pip, char **av, char **envp)
 		{
 			pip->cmd = cmnd(pip->paths, pip->args[0]);
 			if (!pip->cmd)
-				perror("command not found:");
+			{
+				msg_pipe(pip->cmd);
+				exit(1);
+			}
 			execve(pip->cmd, pip->args, envp);
 		}
 	}
@@ -65,7 +68,10 @@ t_p	*cmd_2(t_p *pip, char **av, char **envp)
 		{
 			pip->cmd = cmnd(pip->paths, pip->args[0]);
 			if (!pip->cmd)
-				perror("command not found:");
+			{
+				msg_pipe(pip->cmd);
+				exit(1);
+			}
 			execve(pip->cmd, pip->args, envp);
 		}
 	}

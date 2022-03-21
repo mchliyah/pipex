@@ -6,7 +6,7 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:09:48 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/21 00:57:29 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/21 12:40:01 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # define ERR_ENVP "Environment"
 # define ERR_CMD "Command not found: "
 # define ERR_HEREDOC "here_doc"
+# define TMP_FILE "/Users/mchliyah/.TemporaryItems/.tmp_here_doc"
 
 typedef struct s_pb
 {
