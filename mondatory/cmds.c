@@ -6,7 +6,7 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 23:09:20 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/18 00:12:47 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/20 21:43:11 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ t_p	*cmd_1(t_p *pip, char **av, char **envp)
 {
 	if (pip->pid1 == 0)
 	{
-		dup2(pip->fd[1], 1);
 		close(pip->fd[0]);
 		dup2(pip->fd_in, 0);
+		dup2(pip->fd[1], 1);
 		pip->args = ft_split(av[2], ' ');
 		if (access(*pip->args, X_OK) == 0)
 			execve(*pip->args, pip->args, envp);

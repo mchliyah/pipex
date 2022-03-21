@@ -6,7 +6,7 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:08:15 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/19 23:27:11 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/21 00:58:56 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ char	*find_path(char **envp)
 
 void	get_infile(char **av, t_pb *p)
 {
-	p->fd_in = open(av[1], O_RDONLY);
+	if (!ft_strcmp("here_doc", av[1]))
+		here_doc(av, p);
+	else
+		p->fd_in = open(av[1], O_RDONLY);
 	if (p->fd_in < 0)
 		msg_error(ERR_INFILE);
 }

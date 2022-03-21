@@ -6,7 +6,7 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:09:48 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/19 23:30:23 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/21 00:57:29 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,10 @@ void	pipe_free(t_pb *p);
 char	*find_path(char **envp);
 void	get_infile(char **argv, t_pb *p);
 void	get_outfile(char *argv, t_pb *p);
+char	*get_next_line(int fd);
 
 int		args_in(char *arg, t_pb *p);
-void	here_doc(char *argv, t_pb *p);
+void	here_doc(char **argv, t_pb *p);
 
 void	msg_error(char *err);
 void	msg_pipe(char *arg);
@@ -67,8 +68,10 @@ int		msg(char *err);
 
 char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlen(const char *str);
-char	*ft_strdup(const char *src);
+char	*ft_getstrdup(const char *src);
 char	**ft_split(char const *s, char c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+int		ft_strcmp(const char *s1, const char *s2);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 #endif

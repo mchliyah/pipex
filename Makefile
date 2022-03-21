@@ -20,12 +20,16 @@ FILES_bonus =	\
 				./pipe_bonus/free_bonus.c\
 				./pipe_bonus/cmds_bonus.c\
 				./pipe_bonus/files_bonus.c\
+				./pipe_bonus/strcmp.c	\
 				./mondatory/ft_split.c\
 				./mondatory/ft_strncmp.c\
 				./mondatory/ft_strjoin.c\
 				./mondatory/ft_strlen.c	\
 				./pipe_bonus/error_bonus.c	\
-				./pipe_bonus/here_doc_bonus.c
+				./pipe_bonus/here_doc_bonus.c\
+				./pipe_bonus/get_next_line.c	\
+				./pipe_bonus/get_next_line_utils.c
+
 
 OBJECTS_bonus = $(FILES_bonus:.c=.o)
 
@@ -42,13 +46,13 @@ C_RES = \033[0m
 all : $(NAME)
 
 $(NAME) :  $(OBJECTS)
-	@$(CC) $(FILES) -o $(NAME) -fsanitize=address
+	@$(CC) $(FILES) -o $(NAME) #-fsanitize=address
 	@echo "$(C_GREEN)[PIPEX MANDATORY CREATED!]$(C_RES)"
 
 bonus : $(BONUS)
 
 $(BONUS) : $(OBJECTS_bonus)
-	@$(CC) $(FILES_bonus) -o $(BONUS) -fsanitize=address
+	@$(CC) $(FILES_bonus) -o $(BONUS) #-fsanitize=address
 	@echo "$(C_L_BLUE)[PIPEX BONUS CREATED!]$(C_RES)"
 
 clean : 
