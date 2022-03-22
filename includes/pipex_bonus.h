@@ -6,7 +6,7 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:09:48 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/21 12:40:01 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/22 02:01:35 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct s_pb
 	int		c_nbr;
 	int		pipe_nb;
 	int		*pipe;
+	int		wt_nb;
 	int		idx;
 }t_pb;
 
