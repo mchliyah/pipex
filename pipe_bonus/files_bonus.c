@@ -6,7 +6,7 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:08:15 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/21 00:58:56 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/23 18:18:42 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ void	get_infile(char **av, t_pb *p)
 	else
 		p->fd_in = open(av[1], O_RDONLY);
 	if (p->fd_in < 0)
-		msg_error(ERR_INFILE);
+		err_msg(ERR_INFILE);
 }
 
 void	get_outfile(char *av, t_pb *p)
 {
 	p->fd_out = open(av, O_CREAT | O_RDWR | O_TRUNC, 0644);
 	if (p->fd_out < 0)
-		msg_error(ERR_OUTFILE);
+		err_msg(ERR_OUTFILE);
 }

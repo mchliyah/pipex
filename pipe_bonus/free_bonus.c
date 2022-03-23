@@ -6,13 +6,13 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:08:31 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/21 14:52:52 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/23 17:30:49 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex_bonus.h"
 
-void	parent_free(t_pb *p)
+void	free_prnt(t_pb *p)
 {
 	int	i;
 
@@ -51,6 +51,6 @@ void	pipe_free(t_pb *p)
 	if (p->here_doc)
 		unlink(TMP_FILE);
 	free(p->pipe);
-	msg(ERR_ENVP);
+	write_msg(ERR_ENVP);
 	exit(1);
 }

@@ -6,7 +6,7 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:08:41 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/21 12:40:59 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/23 18:18:42 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	here_doc(char **av, t_pb *p)
 
 	tmpfile = open(TMP_FILE, O_CREAT | O_WRONLY | O_TRUNC, 0644);
 	if (tmpfile < 0)
-		msg_error(ERR_HEREDOC);
+		err_msg(ERR_HEREDOC);
 	while (1)
 	{
 		write(1, "heredoc>", 8);
@@ -49,6 +49,6 @@ void	here_doc(char **av, t_pb *p)
 	if (p->fd_in < 0)
 	{
 		unlink(TMP_FILE);
-		msg_error(ERR_HEREDOC);
+		err_msg(ERR_HEREDOC);
 	}
 }

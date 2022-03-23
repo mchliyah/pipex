@@ -6,7 +6,7 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 23:09:20 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/23 02:21:37 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/23 18:18:28 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ t_p	*cmd_1(t_p *pip, char **av, char **envp)
 			pip->cmd = cmnd(pip->paths, pip->args[0]);
 			if (!pip->cmd)
 			{
-				msg_pipe(pip->args[0]);
+				pipe_msg(pip->args[0]);
 				exit(1);
 			}
 			execve(pip->cmd, pip->args, envp);
@@ -69,7 +69,7 @@ t_p	*cmd_2(t_p *pip, char **av, char **envp)
 			pip->cmd = cmnd(pip->paths, pip->args[0]);
 			if (!pip->cmd)
 			{
-				msg_pipe(pip->args[0]);
+				pipe_msg(pip->args[0]);
 				exit(1);
 			}
 			execve(pip->cmd, pip->args, envp);

@@ -6,7 +6,7 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 20:05:08 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/22 01:40:08 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/23 17:30:49 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	main(int ac, char **av, char **envp)
 
 	pip = malloc(sizeof(t_p));
 	if (ac != 5)
-		return (msg(ERR_INPUT));
+		return (write_msg(ERR_INPUT));
 	pip = get_files(pip, ac, av);
 	pip = get_path(pip, envp);
 	pip->pid1 = fork();

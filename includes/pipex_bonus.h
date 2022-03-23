@@ -6,7 +6,7 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:09:48 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/22 02:01:35 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/23 18:18:42 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 
 # define ERR_INFILE "Infile"
 # define ERR_OUTFILE "Outfile"
+# define ERR_FORK "fork"
 # define ERR_INPUT "Invalid number of arguments.\n"
 # define ERR_PIPE "Pipe"
 # define ERR_ENVP "Environment"
@@ -45,14 +46,14 @@ typedef struct s_pb
 	int		pipe_nb;
 	int		*pipe;
 	int		wt_nb;
-	int		idx;
+	int		pidx;
 }t_pb;
 
 void	close_pipes(t_pb *p);
 
 void	child(t_pb p, char **argv, char **envp);
 
-void	parent_free(t_pb *p);
+void	free_prnt(t_pb *p);
 void	child_free(t_pb *p);
 void	pipe_free(t_pb *p);
 
@@ -64,9 +65,9 @@ char	*get_next_line(int fd);
 int		args_in(char *arg, t_pb *p);
 void	here_doc(char **argv, t_pb *p);
 
-void	msg_error(char *err);
-void	msg_pipe(char *arg);
-int		msg(char *err);
+void	err_msg(char *err);
+void	pipe_msg(char *arg);
+int		write_msg(char *err);
 
 char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlen(const char *str);

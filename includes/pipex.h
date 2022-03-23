@@ -6,7 +6,7 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 20:05:26 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/21 18:22:39 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/23 18:18:42 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 t_p		*cmd_1(t_p *pip, char **av, char **envp);
 t_p		*cmd_2(t_p *pip, char **av, char **envp);
 
-void	msg_error(char *err);
-void	msg_pipe(char *arg);
-int		msg(char *err);
+void	err_msg(char *err);
+void	pipe_msg(char *arg);
+int		write_msg(char *err);
 
 #endif

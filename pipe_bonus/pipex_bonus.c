@@ -6,7 +6,7 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:13:29 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/22 02:06:56 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/23 18:20:10 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	creat_pipes(t_pb *p)
 	{
 		if (pipe(p->pipe + 2 * i) < 0)
 		{
-			parent_free(p);
+			free_prnt(p);
 			perror(ERR_PIPE);
 			exit(1);
 		}
@@ -57,21 +57,23 @@ int	main(int ac, char **av, char **envp)
 
 	p.wt_nb = 0;
 	if (ac < args_in(av[1], &p))
-		return (msg(ERR_INPUT));
+		return (write_msg(ERR_INPUT));
 	get_files(ac, av, &p);
 	p.pipe_nb = 2 * (p.c_nbr - 1);
 	p.pipe = (int *)malloc(sizeof(int) * p.pipe_nb);
 	if (!p.pipe)
-		msg_error(ERR_PIPE);
+		err_msg(ERR_PIPE);
 	p.path = find_path(envp);
 	p.c_pths = ft_split(p.path, ':');
+	if (!p.c_pths)
+		pipe_free(&p);
 	creat_pipes(&p);
-	p.idx = -1;
-	while (++(p.idx) < p.c_nbr)
+	p.pidx = -1;
+	while (++(p.pidx) < p.c_nbr)
 		child(p, av, envp);
 	close_pipes(&p);
-	parent_free(&p);
 	while (p.wt_nb++ < p.pipe_nb)
 		wait(NULL);
+	free_prnt(&p);
 	return (0);
 }
