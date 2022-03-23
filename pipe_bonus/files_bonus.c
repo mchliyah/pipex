@@ -6,17 +6,21 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:08:15 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/23 18:18:42 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/23 22:59:37 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex_bonus.h"
 
-char	*find_path(char **envp)
+char	*find_path(char **env)
 {
-	while (ft_strncmp("PATH", *envp, 4))
-		envp++;
-	return (*envp + 5);
+	while (ft_strncmp("PATH=", *env, 4))
+	{
+		if (ft_strncmp("PATH=", *env, 4) == -1)
+			err_msg(ERR_CMD);
+		env++;
+	}
+	return (*env + 5);
 }
 
 void	get_infile(char **av, t_pb *p)

@@ -6,17 +6,21 @@
 /*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 20:05:08 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/23 17:30:49 by mchliyah         ###   ########.fr       */
+/*   Updated: 2022/03/23 22:55:39 by mchliyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
 
-t_p	*get_path(t_p *pip, char **envp)
+t_p	*get_path(t_p *pip, char **env)
 {
-	while (ft_strncmp("PATH", *envp, 4))
-		envp++;
-	pip->paths = ft_split(*envp + 5, ':');
+	while (ft_strncmp("PATH=", *env, 4))
+	{
+		if (ft_strncmp("PATH=", *env, 4) == -1)
+			err_msg(ERR_CMD);
+		env++;
+	}
+	pip->paths = ft_split(*env + 5, ':');
 	return (pip);
 }
 
@@ -31,7 +35,7 @@ t_p	*get_files(t_p *pip, int ac, char **av)
 	return (pip);
 }
 
-int	main(int ac, char **av, char **envp)
+int	main(int ac, char **av, char **env)
 {
 	t_p	*pip;
 
@@ -39,15 +43,15 @@ int	main(int ac, char **av, char **envp)
 	if (ac != 5)
 		return (write_msg(ERR_INPUT));
 	pip = get_files(pip, ac, av);
-	pip = get_path(pip, envp);
+	pip = get_path(pip, env);
 	pip->pid1 = fork();
 	if (pip->pid1 < 0)
-		perror ("fork1 error");
-	pip = cmd_1(pip, av, envp);
+		err_msg("fork1 error");
+	pip = cmd_1(pip, av, env);
 	pip->pid2 = fork();
 	if (pip->pid2 < 0)
-		perror ("fork1 error");
-	pip = cmd_2(pip, av, envp);
+		err_msg("fork1 error");
+	pip = cmd_2(pip, av, env);
 	close(pip->fd[0]);
 	close(pip->fd[1]);
 	wait(NULL);
