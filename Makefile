@@ -6,14 +6,14 @@
 #    By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/21 18:13:54 by mchliyah          #+#    #+#              #
-#    Updated: 2022/03/25 00:31:37 by mchliyah         ###   ########.fr        #
+#    Updated: 2022/03/25 19:12:00 by mchliyah         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = pipex
 BONUS = pipex_bonus
 CC = gcc
-CFLAGS = -Werror -Wextra -Wall
+FLAGS = -Werror -Wextra -Wall
 
 RM = rm -f
 
@@ -53,7 +53,7 @@ C_GREEN = \033[1;32m
 C_L_BLUE = \033[1;34m
 C_RES = \033[0m
 
-.PHONY : all clean fclean re bonus
+.PHONY : all clean fclean rebonus
 
 all : $(NAME)
 
@@ -76,3 +76,5 @@ fclean : clean
 	@echo "$(C_RED)[PIPEX OBJECTS && EXECUTABLES DELETED!]$(C_RES)"
 
 re : fclean all
+
+rebonus : fclean bonus
