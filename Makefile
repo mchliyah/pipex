@@ -6,7 +6,7 @@
 #    By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/21 18:13:54 by mchliyah          #+#    #+#              #
-#    Updated: 2022/03/21 18:19:27 by mchliyah         ###   ########.fr        #
+#    Updated: 2022/03/25 00:31:37 by mchliyah         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,13 +58,13 @@ C_RES = \033[0m
 all : $(NAME)
 
 $(NAME) :  $(OBJECTS)
-	@$(CC) $(FILES) -o $(NAME) -fsanitize=address
+	@$(CC) $(FILES) -o $(NAME)
 	@echo "$(C_GREEN)[PIPEX MANDATORY CREATED!]$(C_RES)"
 
 bonus : $(BONUS)
 
 $(BONUS) : $(OBJECTS_bonus)
-	@$(CC) $(FILES_bonus) -o $(BONUS) -fsanitize=address
+	@$(CC) $(FILES_bonus) -o $(BONUS)
 	@echo "$(C_L_BLUE)[PIPEX BONUS CREATED!]$(C_RES)"
 
 clean : 
