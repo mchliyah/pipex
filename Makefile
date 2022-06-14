@@ -6,7 +6,7 @@
 #    By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/21 18:13:54 by mchliyah          #+#    #+#              #
-#    Updated: 2022/03/25 19:12:00 by mchliyah         ###   ########.fr        #
+#    Updated: 2022/06/14 20:03:49 by mchliyah         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,13 +18,13 @@ FLAGS = -Werror -Wextra -Wall
 RM = rm -f
 
 FILES = \
-		./mondatory/pipex.c \
-		./mondatory/ft_split.c\
-		./mondatory/ft_strncmp.c\
-		./mondatory/ft_strjoin.c \
-		./mondatory/ft_strlen.c	\
-		./mondatory/cmds.c	\
-		./mondatory/error.c
+		./mandatory/pipex.c \
+		./mandatory/ft_split.c\
+		./mandatory/ft_strncmp.c\
+		./mandatory/ft_strjoin.c \
+		./mandatory/ft_strlen.c	\
+		./mandatory/cmds.c	\
+		./mandatory/error.c
 
 OBJECTS = $(FILES:.c=.o)
 
@@ -33,10 +33,10 @@ FILES_bonus =	\
 				./pipe_bonus/free_bonus.c\
 				./pipe_bonus/cmds_bonus.c\
 				./pipe_bonus/files_bonus.c\
-				./mondatory/ft_split.c\
-				./mondatory/ft_strncmp.c\
-				./mondatory/ft_strjoin.c\
-				./mondatory/ft_strlen.c	\
+				./mandatory/ft_split.c\
+				./mandatory/ft_strncmp.c\
+				./mandatory/ft_strjoin.c\
+				./mandatory/ft_strlen.c	\
 				./pipe_bonus/error_bonus.c	\
 				./pipe_bonus/here_doc_bonus.c \
 				./pipe_bonus/get_next_line_utils.c\
