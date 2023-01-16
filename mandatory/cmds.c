@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cmds.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <mchliyah@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 23:09:20 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/23 22:32:11 by mchliyah         ###   ########.fr       */
+/*   Updated: 2023/01/16 21:54:17 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,10 @@ t_p	*cmd_1(t_p *pip, char **av, char **envp)
 		else
 		{
 			pip->cmd = cmnd(pip->paths, pip->args[0]);
-			if (!pip->cmd)
-			{
-				pipe_msg(pip->args[0]);
-				exit(1);
-			}
-			execve(pip->cmd, pip->args, envp);
+			if (pip->cmd)
+				execve(pip->cmd, pip->args, envp);
+			pipe_msg(pip->args[0]);
+			exit(1);
 		}
 	}
 	return (pip);
@@ -67,12 +65,10 @@ t_p	*cmd_2(t_p *pip, char **av, char **envp)
 		else
 		{
 			pip->cmd = cmnd(pip->paths, pip->args[0]);
-			if (!pip->cmd)
-			{
-				pipe_msg(pip->args[0]);
-				exit(1);
-			}
-			execve(pip->cmd, pip->args, envp);
+			if (pip->cmd)
+				execve(pip->cmd, pip->args, envp);
+			pipe_msg(pip->args[0]);
+			exit(1);
 		}
 	}
 	return (pip);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mchliyah <mchliyah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <mchliyah@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 20:05:26 by mchliyah          #+#    #+#             */
-/*   Updated: 2022/03/23 18:18:42 by mchliyah         ###   ########.fr       */
+/*   Updated: 2023/01/16 21:54:59 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdio.h>
+#include <sys/wait.h>
 
 # define ERR_INFILE "Infile"
 # define ERR_OUTFILE "Outfile"
